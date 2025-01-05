@@ -3,15 +3,21 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+concurrency:
+  group: "build-and-push"
+  cancel-in-progress: false
 jobs:
   build-and-push:
     if: github.repository == 'sebatec-eu/devcontainers'
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Checkout (GitHub)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -22,3 +28,4 @@ jobs:
           imageName: ghcr.io/sebatec-eu/hugo-devcontainer
           push: always
           subFolder: hugo
+          imageTag: "latest,1,1.0,1.0.0"
