@@ -10,10 +10,10 @@ RUN apt-get update \
         bash-completion \
         nodejs \
         g++ \
-		gcc \
-		libc6-dev \
-		make \
-		pkg-config \
+        gcc \
+        libc6-dev \
+        make \
+        pkg-config \
         ca-certificates \
         gnupg2 \
         tar \
@@ -22,6 +22,4 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
-    && unset DEBIAN_FRONTEND \
-
-ENV PATH /lib/go/bin:$PATH
+    && unset DEBIAN_FRONTEND
