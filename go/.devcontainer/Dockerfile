@@ -1,4 +1,4 @@
-ARG VARIANT=1.23-bookworm
+ARG VARIANT=1.23-bookworm@sha256:2e838582004fab0931693a3a84743ceccfbfeeafa8187e87291a1afea457ff7a
 FROM docker.io/golang:${VARIANT}
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
