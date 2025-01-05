@@ -28,4 +28,4 @@ jobs:
           imageName: ghcr.io/sebatec-eu/hugo-devcontainer
           push: always
           subFolder: hugo
-          imageTag: "latest,1,1.0,1.0.2"
+          imageTag: "latest,1,1.0,1.0.3"
