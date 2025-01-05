@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+concurrency:
+  group: "build-and-push"
+  cancel-in-progress: false
 jobs:
   build-and-push:
     if: github.repository == 'sebatec-eu/devcontainers'
