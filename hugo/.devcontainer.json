@@ -14,9 +14,6 @@
       "upgradePackages": "true",
       "nonFreePackages": "true"
     },
-    "ghcr.io/devcontainers/features/go:1": {
-      "version": "none"
-    },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "none"
     },
