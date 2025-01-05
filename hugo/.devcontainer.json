@@ -39,7 +39,7 @@
       "settings": {
         "go.toolsManagement.checkForUpdates": "local",
         "go.useLanguageServer": true,
-        "go.gopath": "/go",
+        // "go.gopath": "/go",
         "python.terminal.activateEnvInCurrentTerminal": true,
         "python.terminal.activateEnvironment": true,
         "python.defaultInterpreterPath": "${containerWorkspaceFolder}/venv/bin/python",
