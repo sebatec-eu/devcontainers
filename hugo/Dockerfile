@@ -9,6 +9,7 @@ RUN apt-get update \
         aspell aspell-de aspell-en \
         bash-completion \
         nodejs \
+        npm \
         g++ \
         gcc \
         libc6-dev \
