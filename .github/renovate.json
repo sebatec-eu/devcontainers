@@ -6,7 +6,8 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "groupName": "docker-dependency"
+      "groupName": "docker-dependency",
+      "pinDigests": true
     }
   ]
 }
