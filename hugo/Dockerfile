@@ -20,6 +20,7 @@ RUN apt-get update \
         tar \
         curl \
         binutils \
+        netbase \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
