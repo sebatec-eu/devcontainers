@@ -9,5 +9,8 @@
       "groupName": "docker-dependency",
       "pinDigests": true
     }
-  ]
+  ],
+  "devcontainer": {
+    "fileMatch": [".devcontainer/devcontainer.json$", ".devcontainer.json$"]
+  }
 }
