@@ -8,6 +8,11 @@
       "matchDatasources": ["docker"],
       "groupName": "docker-dependency",
       "pinDigests": true
+    },
+    {
+      "matchManagers": ["devcontainer"],
+      "groupName": "devcontainer-dependency",
+      "pinDigests": false
     }
   ],
   "devcontainer": {
