@@ -4,12 +4,21 @@ on:
     branches:
       - main
   workflow_dispatch:
-concurrency:
-  group: "build-and-push"
-  cancel-in-progress: false
 jobs:
   build-and-push:
     if: github.repository == 'sebatec-eu/devcontainers'
+    strategy:
+      matrix:
+        subFolders:
+          - subFolder: hugo
+            tags:
+              - "latest"
+              - "1"
+              - "1.0"
+              - "1.0.3"
+    concurrency:
+      group: ${{ github.workflow }}-${{ toJSON(matrix.subFolders) }}-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -25,7 +34,7 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/sebatec-eu/hugo-devcontainer
+          imageName: ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer
           push: always
-          subFolder: hugo
-          imageTag: "latest,1,1.0,1.0.3"
+          subFolder: ${{ matrix.subFolders.subFolder }}
+          imageTag: ${{ join(matrix.subFolders.tags, ',') }}
