@@ -44,11 +44,11 @@ jobs:
         id: "meta"
         run: |
           set -xeu
-          IMAGE_REVISION=$(git log -1 --pretty=%H)
+          IMAGE_REVISION=$(git log -1 --pretty=%H ${{ matrix.subFolders.subFolder }})
           echo "IMAGE_REVISION=$IMAGE_REVISION" >> $GITHUB_OUTPUT
 
           docker pull ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer:${{ matrix.subFolders.tags[0] }}
-          PREV_IMAGE_REVISION=$(docker image inspect ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer:${{ matrix.subFolders.tags[0] }} | jq '.[].Config.Labels|."org.opencontainers.image.revision"')
+          PREV_IMAGE_REVISION=$(docker image inspect ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer:${{ matrix.subFolders.tags[0] }} | jq -r '.[].Config.Labels|."org.opencontainers.image.revision"')
           if [ "$PREV_IMAGE_REVISION" = "$IMAGE_REVISION" ]; then
             echo "RUN_BUILD=false" >> $GITHUB_OUTPUT
           else
