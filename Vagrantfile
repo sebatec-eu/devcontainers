@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SCRIPT
     apt-get update
-    apt-get install -y --no-install-recommends git nodejs npm podman-docker uidmap htop make
+    apt-get install -y --no-install-recommends git nodejs npm podman-docker uidmap htop make jq
     npm install -g @devcontainers/cli
   SCRIPT
 end
