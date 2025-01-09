@@ -2,7 +2,7 @@ FROM docker.io/debian:testing@sha256:7d76af52371d2e8d4a912126402dbddd257d27937ab
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN set -eux; \
+RUN set -eux \
     && apt-get update \
     && apt-get -y --no-install-recommends install \
         git \

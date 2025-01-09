@@ -8,6 +8,7 @@ jobs:
   build-and-push:
     if: github.repository == 'sebatec-eu/devcontainers'
     strategy:
+      fail-fast: false
       matrix:
         subFolders:
           - subFolder: hugo
