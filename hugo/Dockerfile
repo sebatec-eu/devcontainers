@@ -1,4 +1,4 @@
-FROM ghcr.io/sebatec-eu/go-devcontainer:1@sha256:1a81e651bdc86c109276c166129088b4b3300a0f477f60f8071d704cf96b1640
+FROM ghcr.io/sebatec-eu/go-devcontainer:1@sha256:df0fe956885a8170ad7d263e0caa397c518b650859fc364c9c970a0bc328e15d
 
 ENV DEBIAN_FRONTEND=noninteractive
 
