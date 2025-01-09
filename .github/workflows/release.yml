@@ -30,6 +30,8 @@ jobs:
     permissions:
       packages: write
     steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       - name: Checkout (GitHub)
         uses: actions/checkout@v4
       - name: Login to GitHub Container Registry
@@ -38,8 +40,20 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get Git commit timestamps
-        run: echo "SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct -- ${{ matrix.subFolders.subFolder }})" >> $GITHUB_ENV
+      - name: Get meta information of the current build
+        id: "meta"
+        run: |
+          set -xeu
+          IMAGE_REVISION=$(git log -1 --pretty=%H)
+          echo "IMAGE_REVISION=$IMAGE_REVISION" >> $GITHUB_OUTPUT
+
+          docker pull ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer:${{ matrix.subFolders.tags[0] }}
+          PREV_IMAGE_REVISION=$(docker image inspect ghcr.io/sebatec-eu/${{ matrix.subFolders.subFolder }}-devcontainer:${{ matrix.subFolders.tags[0] }} | jq '.[].Config.Labels|."org.opencontainers.image.revision"')
+          if [ "$PREV_IMAGE_REVISION" = "$IMAGE_REVISION" ]; then
+            echo "RUN_BUILD=false" >> $GITHUB_OUTPUT
+          else
+            echo "RUN_BUILD=true" >> $GITHUB_OUTPUT
+          fi
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
@@ -48,4 +62,5 @@ jobs:
           subFolder: ${{ matrix.subFolders.subFolder }}
           imageTag: ${{ join(matrix.subFolders.tags, ',') }}
         env:
-          SOURCE_DATE_EPOCH: ${{ env.SOURCE_DATE_EPOCH }}
+          IMAGE_REVISION: "${{ steps.meta.outputs.IMAGE_REVISION }}"
+        if: steps.meta.outputs.RUN_BUILD == 'true'

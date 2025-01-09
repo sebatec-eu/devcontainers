@@ -2,6 +2,10 @@ FROM docker.io/debian:testing@sha256:7d76af52371d2e8d4a912126402dbddd257d27937ab
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+ARG IMAGE_REVISION
+LABEL org.opencontainers.image.revision=$IMAGE_REVISION
+LABEL org.opencontainers.image.url=https://github.com/sebatec-eu/devcontainers
+
 RUN set -eux \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends \
