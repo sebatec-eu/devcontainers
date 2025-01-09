@@ -5,7 +5,7 @@
   "rebaseWhen": "conflicted",
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchManagers": ["dockerfile"],
       "groupName": "docker-dependency",
       "pinDigests": true
     },
