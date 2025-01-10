@@ -16,7 +16,7 @@ jobs:
               - "latest"
               - "1"
               - "1.1"
-              - "1.1.0"
+              - "1.1.1"
           - subFolder: go
             tags:
               - "latest"

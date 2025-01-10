@@ -1,7 +1,10 @@
 {
   "build": {
     "dockerfile": "./Dockerfile",
-    "context": "."
+    "context": ".",
+    "args": {
+      "IMAGE_REVISION": "${localEnv:IMAGE_REVISION}"
+    }
   },
   "features": {
     "ghcr.io/devcontainers-extra/features/gh-release:1": {
