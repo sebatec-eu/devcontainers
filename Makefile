@@ -12,3 +12,8 @@ build-%:
 
 # .PHONY: build-hugo
 build-go build-hugo:
+
+.PHONY: clean-untagged-images
+clean-untagged-images:
+	./$@.sh go
+	./$@.sh hugo
