@@ -23,6 +23,12 @@ jobs:
               - "1"
               - "1.0"
               - "1.0.0"
+          - subFolder: base
+            tags:
+              - "latest"
+              - "1"
+              - "1.0"
+              - "1.0.0"
     concurrency:
       group: ${{ github.workflow }}-${{ toJSON(matrix.subFolders) }}-${{ github.ref }}
       cancel-in-progress: true

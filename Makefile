@@ -5,13 +5,13 @@ else
 endif
 
 .PHONY: build
-build: build-go build-hugo
+build: build-base build-go build-hugo
 
 build-%:
 	$(SUDO) devcontainer build --image-name $*-devcontainer --workspace-folder ./$*
 
 # .PHONY: build-hugo
-build-go build-hugo:
+build-base build-go build-hugo:
 
 .PHONY: clean-untagged-images
 clean-untagged-images:
