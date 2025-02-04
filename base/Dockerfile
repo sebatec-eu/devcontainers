@@ -9,14 +9,22 @@ LABEL org.opencontainers.image.url=https://github.com/sebatec-eu/devcontainers
 RUN set -eux \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends \
+        bash-completion \
+        binutils \
+        ca-certificates \
+        curl \
         g++ \
         gcc \
         git \
+        gnupg2 \
+        inotify-tools \
         libc6-dev \
         make \
+        netbase \
         nodejs \
         npm \
         pkg-config \
+        tar \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
