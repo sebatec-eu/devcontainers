@@ -16,7 +16,10 @@
     "vscode": {
       "settings": {
         "go.toolsManagement.checkForUpdates": "local",
-        "go.useLanguageServer": true
+        "go.useLanguageServer": true,
+        "[scss]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
       },
       "extensions": ["golang.go"]
     }
