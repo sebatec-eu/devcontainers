@@ -1,21 +1,32 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "baseBranches": ["main"],
+  "extends": [
+    "config:recommended"
+  ],
+  "baseBranches": [
+    "main"
+  ],
   "rebaseWhen": "conflicted",
   "packageRules": [
     {
-      "matchManagers": ["dockerfile"],
+      "matchManagers": [
+        "dockerfile"
+      ],
       "groupName": "docker-dependency",
       "pinDigests": true
     },
     {
-      "matchManagers": ["devcontainer"],
+      "matchManagers": [
+        "devcontainer"
+      ],
       "groupName": "devcontainer-dependency",
       "pinDigests": false
     }
   ],
   "devcontainer": {
-    "fileMatch": [".devcontainer/devcontainer.json$", ".devcontainer.json$"]
+    "managerFilePatterns": [
+      "/.devcontainer/devcontainer.json$/",
+      "/.devcontainer.json$/"
+    ]
   }
 }
