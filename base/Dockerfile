@@ -24,6 +24,7 @@ RUN set -eux \
         nodejs \
         npm \
         pkg-config \
+	sqlite3 \
         tar \
     && apt-get autoremove -y \
     && apt-get clean -y \
