@@ -34,6 +34,17 @@ Additional prerequisites are provisioned on the vagrant machine.
    make build -C /vagrant
    ```
 
+## How to create a new devcontainer
+
+1. Create new sub folder
+2. Log into Github registry with `gh auth token |  podman login ghcr.io -u accountname --password-stdin`
+3. Pull latest debian testing build `podman pull docker.io/debian:testing`
+4. Check image ID `podman images docker.io/debian:testing`
+5. Push latest image with `podman push 68d4a80b1d6d ghcr.io/sebatec-eu/pandoc-devcontainer:latest`
+6. Add Repo to Registry, change visibility to public and ensure that Github Action has write permissions
+
+By this intermediate image upload, we can circumvent big image sizes.
+
 ## Contributing
 
 We welcome contributions! Please follow these steps to contribute:
