@@ -1,0 +1,16 @@
+{
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".",
+    "args": {
+      "IMAGE_REVISION": "${localEnv:IMAGE_REVISION}"
+    }
+  },
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": []
+    }
+  }
+}
