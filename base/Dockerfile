@@ -16,6 +16,7 @@ RUN set -eux \
         g++ \
         gcc \
         git \
+		git-lfs \
         gnupg2 \
         inotify-tools \
         libc6-dev \
