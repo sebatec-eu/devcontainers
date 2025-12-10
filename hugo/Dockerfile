@@ -1,4 +1,4 @@
-FROM ghcr.io/sebatec-eu/go-devcontainer:1@sha256:7250df045a4e4f06621dd0bb4b8ebc62d44902fae94cf0fb4b12fcd2b3fe4cdf
+FROM ghcr.io/sebatec-eu/go-devcontainer:1@sha256:d0e754f81d8a61d69b5bf7ee429e706dd73a9303162cd11bf4c52fe5e037e9cb
 
 ARG IMAGE_REVISION
 LABEL org.opencontainers.image.revision=$IMAGE_REVISION
