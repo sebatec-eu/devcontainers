@@ -1,4 +1,4 @@
-FROM ghcr.io/sebatec-eu/python-devcontainer:1@sha256:3556b26437171e399ed80806431cc4107c0f2a09635d173c181a27b62bf802f3
+FROM ghcr.io/sebatec-eu/python-devcontainer:1@sha256:a8cefbef655c1184600dadc229134e59adad389333dcad503c15ed0ed1f47cd9
 
 ARG IMAGE_REVISION
 LABEL org.opencontainers.image.revision=$IMAGE_REVISION
