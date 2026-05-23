@@ -26,7 +26,7 @@ RUN set -eux \
         npm \
         pkg-config \
 		ripgrep \
-	sqlite3 \
+	    sqlite3 \
         tar \
     && apt-get autoremove -y \
     && apt-get clean -y \
