@@ -15,9 +15,7 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "python.terminal.activateEnvInCurrentTerminal": true,
-        "python.terminal.activateEnvironment": true,
-        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/venv/bin/python"
+        "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python"
       },
       "extensions": [
         "mechatroner.rainbow-csv",
