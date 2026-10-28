@@ -1,4 +1,4 @@
-FROM docker.io/debian:testing@sha256:d671983fe9e0d185db24542fb93cd9a006fa9d014ae52d6741061b69c8f42be7
+FROM docker.io/debian:testing@sha256:cf15c569a84dfda832e421ab27a8049e962ba8e90571612396cd8db799279e4e
 
 ENV DEBIAN_FRONTEND=noninteractive
 
